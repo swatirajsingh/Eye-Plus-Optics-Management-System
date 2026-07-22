@@ -17,7 +17,7 @@ function Appointments() {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/appointments"
+        "https://eye-plus-optics-management-system.onrender.com/api/appointments"
       );
 
       setAppointments(res.data);
@@ -52,7 +52,7 @@ function Appointments() {
     try {
 
       await axios.post(
-        "http://localhost:5000/api/appointments",
+        "https://eye-plus-optics-management-system.onrender.com/api/appointments",
         form
       );
 
@@ -83,7 +83,7 @@ const completeAppointment = async (id) => {
   try {
 
     await axios.put(
-      `http://localhost:5000/api/appointments/${id}`,
+      `https://eye-plus-optics-management-system.onrender.com/api/appointments/${id}`,
       {
         status: "Completed"
       }

@@ -30,7 +30,7 @@ function CustomerForm() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:5000/api/customers", form);
+      await axios.post("https://eye-plus-optics-management-system.onrender.com/api/customers", form);
 
       alert("Customer Added Successfully!");
 

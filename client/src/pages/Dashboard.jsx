@@ -16,7 +16,7 @@ function Dashboard() {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/dashboard"
+        "https://eye-plus-optics-management-system.onrender.com/api/dashboard"
       );
 
       setData(res.data);

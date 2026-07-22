@@ -9,7 +9,7 @@ function CustomerTable() {
   const fetchCustomers = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/customers"
+        "https://eye-plus-optics-management-system.onrender.com/api/customers"
       );
 
       setCustomers(res.data);
@@ -37,7 +37,7 @@ function CustomerTable() {
     try {
 
       await axios.delete(
-        `http://localhost:5000/api/customers/${id}`
+        `https://eye-plus-optics-management-system.onrender.com/api/customers/${id}`
       );
 
       fetchCustomers();
@@ -54,7 +54,7 @@ function CustomerTable() {
     try {
 
       await axios.put(
-        `http://localhost:5000/api/customers/${editCustomer._id}`,
+        `https://eye-plus-optics-management-system.onrender.com/api/customers/${editCustomer._id}`,
         editCustomer
       );
 
