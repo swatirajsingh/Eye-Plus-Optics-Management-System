@@ -1,40 +1,34 @@
 import express from "express";
-import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
-import dashboardRoutes from "./routes/dashboardRoutes.js";
+
+import connectDB from "./config/db.js";
 
 import customerRoutes from "./routes/customerRoutes.js";
 import appointmentRoutes from "./routes/appointmentRoutes.js";
+import dashboardRoutes from "./routes/dashboardRoutes.js";
+
 dotenv.config();
 
 const app = express();
 
+// Connect to MongoDB
+connectDB();
+
 // Middleware
 app.use(cors());
 app.use(express.json());
-
-// MongoDB Connection
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ MongoDB Connected"))
-  .catch((err) => console.log(err));
 
 // Test Route
 app.get("/", (req, res) => {
   res.send("Eye+ Optics Backend Running");
 });
 
-// Customer Routes
+// Routes
 app.use("/api/customers", customerRoutes);
-app.use(
-  "/api/appointments",
-  appointmentRoutes
-);
-app.use(
-  "/api/dashboard",
-  dashboardRoutes
-);
+app.use("/api/appointments", appointmentRoutes);
+app.use("/api/dashboard", dashboardRoutes);
+
 // Server
 const PORT = process.env.PORT || 5000;
 
